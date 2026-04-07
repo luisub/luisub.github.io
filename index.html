@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Luis U. Aguilera — Computational Biologist</title>
-  <meta name="description" content="Research Associate at UC Anschutz Medical Campus. Building computational tools for single-molecule microscopy, gene expression, and bioinformatics." />
+  <title>Luis U. Aguilera — Computational Biologist & Software Developer</title>
+  <meta name="description" content="Research Associate at UC Anschutz Medical Campus. Building computational tools for single-molecule microscopy, gene expression, and bioinformatics. Creator of MicroLive and 6EQUJ5." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet" />
@@ -110,10 +110,22 @@
       background: radial-gradient(circle, var(--accent-dim) 0%, transparent 70%);
       pointer-events: none;
     }
+    /* Particle canvas behind hero */
+    #particle-canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
     .hero-inner {
       max-width: 1100px;
       margin: 0 auto;
       width: 100%;
+      position: relative;
+      z-index: 1;
     }
     .hero .greeting {
       font-size: 13px;
@@ -236,6 +248,241 @@
       height: 1px;
       background: var(--border);
       margin-left: 1rem;
+    }
+
+    /* ─── PROJECT SHOWCASE ─── */
+    .showcase {
+      padding: 0;
+      max-width: 100%;
+      margin: 0;
+    }
+    .showcase-item {
+      position: relative;
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+    .showcase-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+    .showcase-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.3) saturate(1.3);
+      transition: transform 8s ease-out, filter 1s ease;
+    }
+    .showcase-item:hover .showcase-bg img {
+      transform: scale(1.05);
+      filter: brightness(0.4) saturate(1.5);
+    }
+    .showcase-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(10, 14, 23, 0.92) 0%, rgba(10, 14, 23, 0.6) 50%, rgba(10, 14, 23, 0.85) 100%);
+      z-index: 1;
+    }
+    .showcase-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 6rem 2rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .showcase-text .showcase-label {
+      font-size: 11px;
+      color: var(--accent);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .showcase-text .showcase-label::before {
+      content: '';
+      width: 20px;
+      height: 1px;
+      background: var(--accent);
+    }
+    .showcase-text h3 {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 600;
+      letter-spacing: -1px;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+    .showcase-text p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      font-weight: 300;
+      line-height: 1.9;
+      margin-bottom: 1.5rem;
+    }
+    .showcase-text .showcase-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+    }
+    .showcase-text .showcase-tags .tag {
+      font-size: 10px;
+      padding: 3px 10px;
+      border-radius: 3px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+    }
+    .showcase-text .showcase-tags .tag.accent {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: var(--accent-dim);
+    }
+    .showcase-text .showcase-tags .tag.warm {
+      border-color: var(--accent-warm);
+      color: var(--accent-warm);
+      background: #f472b622;
+    }
+    .showcase-text .showcase-tags .tag.purple {
+      border-color: var(--accent-secondary);
+      color: var(--accent-secondary);
+      background: #818cf822;
+    }
+    .showcase-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    /* Video/Media preview */
+    .showcase-media {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
+      transition: transform 0.5s ease, box-shadow 0.5s ease;
+      cursor: pointer;
+    }
+    .showcase-media:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 35px 80px rgba(0, 0, 0, 0.6), 0 0 40px var(--accent-dim);
+    }
+    .showcase-media img,
+    .showcase-media video {
+      width: 100%;
+      display: block;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+    }
+    .showcase-media .play-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 0, 0, 0.3);
+      transition: background 0.3s;
+    }
+    .showcase-media:hover .play-overlay {
+      background: rgba(0, 0, 0, 0.15);
+    }
+    .play-btn {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: rgba(45, 212, 191, 0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s;
+      box-shadow: 0 0 40px rgba(45, 212, 191, 0.3);
+    }
+    .showcase-media:hover .play-btn {
+      transform: scale(1.1);
+      box-shadow: 0 0 60px rgba(45, 212, 191, 0.5);
+    }
+    .play-btn svg {
+      width: 28px;
+      height: 28px;
+      fill: var(--bg-primary);
+      margin-left: 3px;
+    }
+
+    /* GIF showcase */
+    .showcase-media .gif-label {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      font-size: 9px;
+      padding: 3px 8px;
+      border-radius: 3px;
+      background: rgba(10, 14, 23, 0.8);
+      color: var(--accent);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      border: 1px solid var(--border);
+      backdrop-filter: blur(4px);
+    }
+
+    /* ─── VIDEO MODAL ─── */
+    .video-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 10000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 0, 0, 0.92);
+      backdrop-filter: blur(20px);
+    }
+    .video-modal.active {
+      display: flex;
+    }
+    .video-modal .modal-close {
+      position: absolute;
+      top: 2rem;
+      right: 2rem;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+      color: var(--text-primary);
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .video-modal .modal-close:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+    .video-modal .modal-content {
+      width: 90%;
+      max-width: 960px;
+      aspect-ratio: 16/9;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 0 80px rgba(45, 212, 191, 0.1);
+    }
+    .video-modal iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
     }
 
     /* ─── SOFTWARE TOOLS ─── */
@@ -401,6 +648,12 @@
       border: 1px solid var(--border);
       border-radius: 6px;
       background: var(--bg-card);
+      transition: all 0.3s;
+    }
+    .stat-box:hover {
+      border-color: var(--border-accent);
+      transform: translateY(-2px);
+      box-shadow: var(--glow);
     }
     .stat-box .stat-num {
       font-size: 1.8rem;
@@ -491,6 +744,12 @@
       .tools-grid { grid-template-columns: 1fr; }
       .teaching-card { flex-direction: column; gap: 1rem; }
       .pub-item { flex-direction: column; gap: 0.5rem; }
+      .showcase-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 4rem 1.5rem;
+      }
+      .showcase-item { min-height: auto; }
     }
 
     /* ─── ANIMATIONS ─── */
@@ -508,6 +767,51 @@
     .delay-4 { animation-delay: 0.4s; }
     .delay-5 { animation-delay: 0.5s; }
     .delay-6 { animation-delay: 0.6s; }
+
+    /* Floating animation for showcase media */
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+    .float-anim {
+      animation: float 6s ease-in-out infinite;
+    }
+
+    /* Scanline effect for 6EQUJ5 */
+    .scanline-overlay {
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(45, 212, 191, 0.02) 2px,
+        rgba(45, 212, 191, 0.02) 4px
+      );
+      pointer-events: none;
+      z-index: 3;
+    }
+
+    /* Glow border effect */
+    @keyframes borderGlow {
+      0%, 100% { border-color: var(--border); }
+      50% { border-color: var(--accent); box-shadow: 0 0 20px var(--accent-dim); }
+    }
+    .glow-border {
+      animation: borderGlow 4s ease-in-out infinite;
+    }
+
+    /* Section divider */
+    .section-divider {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    .section-divider hr {
+      border: none;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border), var(--accent), var(--border), transparent);
+    }
   </style>
 </head>
 <body>
@@ -517,10 +821,10 @@
     <div class="nav-inner">
       <div class="logo">luis.aguilera<span> ~/</span></div>
       <ul>
+        <li><a href="#showcase">Projects</a></li>
         <li><a href="#tools">Tools</a></li>
         <li><a href="#publications">Publications</a></li>
         <li><a href="#about">About</a></li>
-        <li><a href="#teaching">Teaching</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </div>
@@ -528,8 +832,9 @@
 
   <!-- HERO -->
   <header class="hero">
+    <canvas id="particle-canvas"></canvas>
     <div class="hero-inner">
-      <div class="greeting fade-in">Computational Biologist</div>
+      <div class="greeting fade-in">Computational Biologist & Software Developer</div>
       <h1 class="fade-in delay-1">
         Luis U. <span class="highlight">Aguilera</span>
       </h1>
@@ -546,10 +851,102 @@
       <div class="links fade-in delay-4">
         <a href="https://github.com/luisub" class="btn primary" target="_blank">GitHub</a>
         <a href="https://scholar.google.com/citations?user=06M4bvMAAAAJ&amp;hl=en" class="btn" target="_blank">Google Scholar</a>
-        <a href="#contact" class="btn">Get in Touch</a>
+        <a href="#showcase" class="btn">View Projects ↓</a>
       </div>
     </div>
   </header>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- PROJECT SHOWCASES                               -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <div id="showcase" class="showcase">
+
+    <!-- ─── MICROLIVE SHOWCASE ─── -->
+    <div class="showcase-item" id="showcase-microlive">
+      <div class="showcase-bg">
+        <img src="assets/microscopy_hero.png" alt="Fluorescence microscopy cells" loading="lazy" />
+      </div>
+      <div class="showcase-content">
+        <div class="showcase-text fade-in">
+          <div class="showcase-label">Featured Project</div>
+          <h3>MicroLive</h3>
+          <p>
+            A complete image processing toolkit for quantifying live-cell single-molecule microscopy.
+            PyQt5-based GUI integrating Cellpose segmentation, TrackPy particle tracking, Big-FISH spot detection,
+            and custom ML classifiers — from image loading to publication-ready analysis.
+          </p>
+          <div class="showcase-tags">
+            <span class="tag accent">Published in Bioinformatics Advances</span>
+            <span class="tag purple">Python</span>
+            <span class="tag purple">PyQt5</span>
+            <span class="tag warm">Microscopy</span>
+            <span class="tag">Cellpose</span>
+            <span class="tag">TrackPy</span>
+            <span class="tag">ML</span>
+          </div>
+          <div class="showcase-actions">
+            <a href="https://github.com/ningzhaoAnschutz/microlive" class="btn primary" target="_blank">View on GitHub</a>
+            <a href="#" class="btn" id="btn-play-microlive" onclick="openVideoModal(event)">▶ Watch Demo</a>
+            <a href="https://doi.org/10.1093/bioadv/vbag095" class="btn" target="_blank">Read Paper</a>
+          </div>
+        </div>
+        <div class="showcase-media float-anim fade-in delay-2" id="microlive-media" onclick="openVideoModal(event)">
+          <img src="https://img.youtube.com/vi/GU1ct5go-AU/maxresdefault.jpg" alt="MicroLive demo video thumbnail" loading="lazy" />
+          <div class="play-overlay">
+            <div class="play-btn">
+              <svg viewBox="0 0 24 24"><polygon points="8,5 19,12 8,19"/></svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── 6EQUJ5 SHOWCASE ─── -->
+    <div class="showcase-item" id="showcase-6equj5">
+      <div class="showcase-bg">
+        <img src="assets/deep_space_6equj5.png" alt="Deep space radio telescope" loading="lazy" />
+      </div>
+      <div class="scanline-overlay"></div>
+      <div class="showcase-content">
+        <div class="showcase-media float-anim fade-in glow-border" style="order: -1;">
+          <img src="https://raw.githubusercontent.com/luisub/6EQUJ5/main/docs/trailer_final.gif" alt="6EQUJ5 game trailer animation" loading="lazy" />
+          <span class="gif-label">● Live Demo</span>
+        </div>
+        <div class="showcase-text fade-in delay-2">
+          <div class="showcase-label">Creative Project</div>
+          <h3>6EQUJ5</h3>
+          <p>
+            A Python terminal-based deep-space receiver game. You are a rogue engineer operating from an abandoned, 
+            analog radio observatory. Scan the sky along the hydrogen line, lock onto anomalous sources, 
+            and engage in AI-driven dialogue with alien civilizations — each with its own history, physics, and intent.
+            Inspired by the real 1977 Wow! signal.
+          </p>
+          <div class="showcase-tags">
+            <span class="tag accent">Science Fiction</span>
+            <span class="tag purple">Python</span>
+            <span class="tag purple">Ollama / AI</span>
+            <span class="tag warm">SETI</span>
+            <span class="tag">Terminal Art</span>
+            <span class="tag">Game</span>
+          </div>
+          <div class="showcase-actions">
+            <a href="https://github.com/luisub/6EQUJ5" class="btn primary" target="_blank">View on GitHub</a>
+            <a href="https://github.com/luisub/6EQUJ5/blob/main/docs/trailer_final.mp4" class="btn" target="_blank">▶ Full Trailer</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VIDEO MODAL -->
+  <div class="video-modal" id="video-modal">
+    <button class="modal-close" onclick="closeVideoModal()" aria-label="Close video">✕</button>
+    <div class="modal-content">
+      <iframe id="video-iframe" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <div class="section-divider"><hr /></div>
 
   <!-- SOFTWARE TOOLS -->
   <section id="tools">
@@ -563,7 +960,7 @@
           <div class="card-icon">🔬</div>
           <div class="card-links">
             <a href="https://github.com/ningzhaoAnschutz/microlive" target="_blank">repo</a>
-            <!-- <a href="#">paper</a> -->
+            <a href="https://doi.org/10.1093/bioadv/vbag095" target="_blank">paper</a>
           </div>
         </div>
         <h3>MicroLive</h3>
@@ -815,7 +1212,114 @@
   </footer>
 
   <script>
-    // Intersection Observer for scroll animations
+    // ─── PARTICLE SYSTEM ─── //
+    const canvas = document.getElementById('particle-canvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+    let animId;
+
+    function resizeCanvas() {
+      const hero = document.querySelector('.hero');
+      canvas.width = hero.offsetWidth;
+      canvas.height = hero.offsetHeight;
+    }
+
+    class Particle {
+      constructor() {
+        this.reset();
+      }
+      reset() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 2 + 0.5;
+        this.speedX = (Math.random() - 0.5) * 0.3;
+        this.speedY = (Math.random() - 0.5) * 0.3;
+        this.opacity = Math.random() * 0.5 + 0.1;
+        this.hue = Math.random() > 0.7 ? 160 : (Math.random() > 0.5 ? 230 : 320);
+      }
+      update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+        if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) {
+          this.reset();
+        }
+      }
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fillStyle = `hsla(${this.hue}, 80%, 65%, ${this.opacity})`;
+        ctx.fill();
+      }
+    }
+
+    function initParticles() {
+      particles = [];
+      const count = Math.min(80, Math.floor(canvas.width * canvas.height / 15000));
+      for (let i = 0; i < count; i++) {
+        particles.push(new Particle());
+      }
+    }
+
+    function drawConnections() {
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 120) {
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.strokeStyle = `rgba(45, 212, 191, ${0.08 * (1 - dist / 120)})`;
+            ctx.lineWidth = 0.5;
+            ctx.stroke();
+          }
+        }
+      }
+    }
+
+    function animateParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach(p => { p.update(); p.draw(); });
+      drawConnections();
+      animId = requestAnimationFrame(animateParticles);
+    }
+
+    resizeCanvas();
+    initParticles();
+    animateParticles();
+    window.addEventListener('resize', () => {
+      resizeCanvas();
+      initParticles();
+    });
+
+    // ─── VIDEO MODAL ─── //
+    function openVideoModal(e) {
+      e.preventDefault();
+      const modal = document.getElementById('video-modal');
+      const iframe = document.getElementById('video-iframe');
+      iframe.src = 'https://www.youtube.com/embed/GU1ct5go-AU?autoplay=1&rel=0';
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeVideoModal() {
+      const modal = document.getElementById('video-modal');
+      const iframe = document.getElementById('video-iframe');
+      iframe.src = '';
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    document.getElementById('video-modal').addEventListener('click', (e) => {
+      if (e.target === e.currentTarget) closeVideoModal();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeVideoModal();
+    });
+
+    // ─── SCROLL ANIMATIONS ─── //
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -829,6 +1333,20 @@
       el.style.animationPlayState = 'paused';
       observer.observe(el);
     });
+
+    // ─── PARALLAX on Showcase Backgrounds ─── //
+    const showcaseItems = document.querySelectorAll('.showcase-item');
+    window.addEventListener('scroll', () => {
+      showcaseItems.forEach(item => {
+        const rect = item.getBoundingClientRect();
+        const speed = 0.15;
+        const yPos = rect.top * speed;
+        const bg = item.querySelector('.showcase-bg img');
+        if (bg) {
+          bg.style.transform = `translateY(${yPos}px) scale(1.1)`;
+        }
+      });
+    }, { passive: true });
   </script>
 
 </body>
