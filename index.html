@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Luis U. Aguilera — Computational Biologist & Software Developer</title>
-  <meta name="description" content="Research Associate at UC Anschutz Medical Campus. Building computational tools for single-molecule microscopy, gene expression, and bioinformatics. Creator of MicroLive and 6EQUJ5." />
+  <meta name="description" content="Research Associate at UC Anschutz Medical Campus. Building computational tools for single-molecule microscopy, gene expression, and bioinformatics." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet" />
@@ -30,7 +30,6 @@
     }
 
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
     html { scroll-behavior: smooth; }
 
     body {
@@ -57,684 +56,286 @@
 
     /* ─── NAV ─── */
     nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 100;
-      background: #0a0e17e6;
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-      padding: 0 2rem;
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: #0a0e17e6; backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border); padding: 0 2rem;
     }
     nav .nav-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 56px;
+      max-width: 1100px; margin: 0 auto; display: flex;
+      align-items: center; justify-content: space-between; height: 56px;
     }
-    nav .logo {
-      font-weight: 600;
-      font-size: 15px;
-      color: var(--accent);
-      letter-spacing: -0.5px;
-    }
+    nav .logo { font-weight: 600; font-size: 15px; color: var(--accent); letter-spacing: -0.5px; }
     nav .logo span { color: var(--text-muted); font-weight: 300; }
     nav ul { list-style: none; display: flex; gap: 1.8rem; }
     nav ul li a {
-      color: var(--text-secondary);
-      font-size: 12px;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-      transition: color 0.2s;
+      color: var(--text-secondary); font-size: 12px; letter-spacing: 0.5px;
+      text-transform: uppercase; transition: color 0.2s;
     }
     nav ul li a:hover { color: var(--accent); }
 
     /* ─── HERO ─── */
     .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      padding: 6rem 2rem 4rem;
-      position: relative;
+      min-height: 100vh; display: flex; align-items: center;
+      padding: 6rem 2rem 4rem; position: relative;
     }
     .hero::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      right: -10%;
-      width: 600px;
-      height: 600px;
+      content: ''; position: absolute; top: 0; right: -10%;
+      width: 600px; height: 600px;
       background: radial-gradient(circle, var(--accent-dim) 0%, transparent 70%);
       pointer-events: none;
     }
-    /* Particle canvas behind hero */
     #particle-canvas {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 0;
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      pointer-events: none; z-index: 0;
     }
-    .hero-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      width: 100%;
-      position: relative;
-      z-index: 1;
-    }
+    .hero-inner { max-width: 1100px; margin: 0 auto; width: 100%; position: relative; z-index: 1; }
     .hero .greeting {
-      font-size: 13px;
-      color: var(--accent);
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-bottom: 1.2rem;
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
+      font-size: 13px; color: var(--accent); letter-spacing: 2px;
+      text-transform: uppercase; margin-bottom: 1.2rem;
+      display: flex; align-items: center; gap: 0.8rem;
     }
     .hero .greeting::before {
-      content: '';
-      display: inline-block;
-      width: 28px;
-      height: 1px;
-      background: var(--accent);
+      content: ''; display: inline-block; width: 28px; height: 1px; background: var(--accent);
     }
     .hero h1 {
-      font-family: var(--serif);
-      font-size: clamp(2.5rem, 5vw, 4rem);
-      font-weight: 600;
-      line-height: 1.15;
-      letter-spacing: -1px;
-      margin-bottom: 1.5rem;
+      font-family: var(--serif); font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 600; line-height: 1.15; letter-spacing: -1px; margin-bottom: 1.5rem;
     }
     .hero h1 .highlight { color: var(--accent); }
     .hero .subtitle {
-      font-size: 15px;
-      color: var(--text-secondary);
-      max-width: 620px;
-      line-height: 1.8;
-      margin-bottom: 2rem;
-      font-weight: 300;
+      font-size: 15px; color: var(--text-secondary); max-width: 620px;
+      line-height: 1.8; margin-bottom: 2rem; font-weight: 300;
     }
-    .hero .meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-      font-size: 12px;
-      color: var(--text-muted);
-    }
-    .hero .meta span {
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-    }
+    .hero .meta { display: flex; flex-wrap: wrap; gap: 1.5rem; font-size: 12px; color: var(--text-muted); }
+    .hero .meta span { display: flex; align-items: center; gap: 0.4rem; }
     .hero .meta .dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--accent);
-      display: inline-block;
-      animation: pulse 2s ease-in-out infinite;
+      width: 6px; height: 6px; border-radius: 50%; background: var(--accent);
+      display: inline-block; animation: pulse 2s ease-in-out infinite;
     }
-    @keyframes pulse {
-      0%, 100% { opacity: 0.4; }
-      50% { opacity: 1; }
-    }
+    @keyframes pulse { 0%, 100% { opacity: 0.4; } 50% { opacity: 1; } }
+    .hero .links { margin-top: 2.5rem; display: flex; gap: 1rem; flex-wrap: wrap; }
 
-    .hero .links {
-      margin-top: 2.5rem;
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
     .btn {
-      padding: 0.6rem 1.4rem;
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      font-family: var(--mono);
-      font-size: 12px;
-      color: var(--text-secondary);
-      transition: all 0.2s;
-      background: transparent;
-      cursor: pointer;
+      padding: 0.6rem 1.4rem; border: 1px solid var(--border); border-radius: 4px;
+      font-family: var(--mono); font-size: 12px; color: var(--text-secondary);
+      transition: all 0.2s; background: transparent; cursor: pointer;
     }
-    .btn:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-      box-shadow: var(--glow);
-    }
+    .btn:hover { border-color: var(--accent); color: var(--accent); box-shadow: var(--glow); }
     .btn.primary {
-      background: var(--accent);
-      color: var(--bg-primary);
-      border-color: var(--accent);
-      font-weight: 500;
+      background: var(--accent); color: var(--bg-primary);
+      border-color: var(--accent); font-weight: 500;
     }
-    .btn.primary:hover {
-      background: #5eead4;
-      box-shadow: 0 0 30px #2dd4bf33;
-    }
+    .btn.primary:hover { background: #5eead4; box-shadow: 0 0 30px #2dd4bf33; }
 
     /* ─── SECTIONS ─── */
-    section {
-      padding: 5rem 2rem;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-    .section-header {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin-bottom: 3rem;
-    }
-    .section-header .num {
-      font-size: 14px;
-      color: var(--accent);
-      font-weight: 500;
-    }
+    section { padding: 5rem 2rem; max-width: 1100px; margin: 0 auto; }
+    .section-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 3rem; }
+    .section-header .num { font-size: 14px; color: var(--accent); font-weight: 500; }
     .section-header h2 {
-      font-family: var(--serif);
-      font-size: 1.8rem;
-      font-weight: 600;
-      letter-spacing: -0.5px;
+      font-family: var(--serif); font-size: 1.8rem; font-weight: 600; letter-spacing: -0.5px;
     }
     .section-header::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: var(--border);
-      margin-left: 1rem;
+      content: ''; flex: 1; height: 1px; background: var(--border); margin-left: 1rem;
     }
 
-    /* ─── PROJECT SHOWCASE ─── */
-    .showcase {
-      padding: 0;
-      max-width: 100%;
-      margin: 0;
+    /* ═══ PROJECT SHOWCASE ═══ */
+    .project-showcase {
+      border: 1px solid var(--border); border-radius: 12px;
+      background: var(--bg-card); overflow: hidden;
+      margin-bottom: 2.5rem; transition: all 0.4s ease;
     }
-    .showcase-item {
-      position: relative;
-      min-height: 80vh;
-      display: flex;
-      align-items: center;
-      overflow: hidden;
+    .project-showcase:hover {
+      border-color: var(--border-accent);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3), var(--glow);
     }
-    .showcase-bg {
-      position: absolute;
-      inset: 0;
-      z-index: 0;
+    /* Hero media — full-width image or video at top */
+    .project-hero {
+      position: relative; width: 100%; overflow: hidden; cursor: pointer;
+      border-bottom: 1px solid var(--border);
     }
-    .showcase-bg img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: brightness(0.3) saturate(1.3);
-      transition: transform 8s ease-out, filter 1s ease;
+    .project-hero img {
+      width: 100%; display: block; object-fit: cover; max-height: 420px;
+      transition: transform 0.8s ease, filter 0.5s ease;
+      filter: brightness(0.85);
     }
-    .showcase-item:hover .showcase-bg img {
-      transform: scale(1.05);
-      filter: brightness(0.4) saturate(1.5);
+    .project-showcase:hover .project-hero img {
+      transform: scale(1.03); filter: brightness(1);
     }
-    .showcase-bg::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(10, 14, 23, 0.92) 0%, rgba(10, 14, 23, 0.6) 50%, rgba(10, 14, 23, 0.85) 100%);
-      z-index: 1;
+    .project-hero .play-overlay {
+      position: absolute; inset: 0; display: flex;
+      align-items: center; justify-content: center;
+      background: rgba(0, 0, 0, 0.35); transition: background 0.3s;
     }
-    .showcase-content {
-      position: relative;
-      z-index: 2;
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 6rem 2rem;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: center;
-    }
-    .showcase-text .showcase-label {
-      font-size: 11px;
-      color: var(--accent);
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      margin-bottom: 0.8rem;
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-    }
-    .showcase-text .showcase-label::before {
-      content: '';
-      width: 20px;
-      height: 1px;
-      background: var(--accent);
-    }
-    .showcase-text h3 {
-      font-family: var(--serif);
-      font-size: clamp(2rem, 4vw, 3rem);
-      font-weight: 600;
-      letter-spacing: -1px;
-      margin-bottom: 1rem;
-      line-height: 1.2;
-    }
-    .showcase-text p {
-      font-size: 14px;
-      color: var(--text-secondary);
-      font-weight: 300;
-      line-height: 1.9;
-      margin-bottom: 1.5rem;
-    }
-    .showcase-text .showcase-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-bottom: 2rem;
-    }
-    .showcase-text .showcase-tags .tag {
-      font-size: 10px;
-      padding: 3px 10px;
-      border-radius: 3px;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-      border: 1px solid var(--border);
-      color: var(--text-secondary);
-    }
-    .showcase-text .showcase-tags .tag.accent {
-      border-color: var(--accent);
-      color: var(--accent);
-      background: var(--accent-dim);
-    }
-    .showcase-text .showcase-tags .tag.warm {
-      border-color: var(--accent-warm);
-      color: var(--accent-warm);
-      background: #f472b622;
-    }
-    .showcase-text .showcase-tags .tag.purple {
-      border-color: var(--accent-secondary);
-      color: var(--accent-secondary);
-      background: #818cf822;
-    }
-    .showcase-actions {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
-    /* Video/Media preview */
-    .showcase-media {
-      position: relative;
-      border-radius: 12px;
-      overflow: hidden;
-      border: 1px solid var(--border);
-      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
-      transition: transform 0.5s ease, box-shadow 0.5s ease;
-      cursor: pointer;
-    }
-    .showcase-media:hover {
-      transform: translateY(-8px) scale(1.02);
-      box-shadow: 0 35px 80px rgba(0, 0, 0, 0.6), 0 0 40px var(--accent-dim);
-    }
-    .showcase-media img,
-    .showcase-media video {
-      width: 100%;
-      display: block;
-      aspect-ratio: 16/9;
-      object-fit: cover;
-    }
-    .showcase-media .play-overlay {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(0, 0, 0, 0.3);
-      transition: background 0.3s;
-    }
-    .showcase-media:hover .play-overlay {
-      background: rgba(0, 0, 0, 0.15);
-    }
+    .project-showcase:hover .play-overlay { background: rgba(0, 0, 0, 0.15); }
     .play-btn {
-      width: 72px;
-      height: 72px;
-      border-radius: 50%;
-      background: rgba(45, 212, 191, 0.9);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.3s;
-      box-shadow: 0 0 40px rgba(45, 212, 191, 0.3);
+      width: 64px; height: 64px; border-radius: 50%;
+      background: rgba(45, 212, 191, 0.9); display: flex;
+      align-items: center; justify-content: center;
+      transition: all 0.3s; box-shadow: 0 0 40px rgba(45, 212, 191, 0.3);
     }
-    .showcase-media:hover .play-btn {
-      transform: scale(1.1);
-      box-shadow: 0 0 60px rgba(45, 212, 191, 0.5);
+    .project-showcase:hover .play-btn {
+      transform: scale(1.15); box-shadow: 0 0 60px rgba(45, 212, 191, 0.5);
     }
-    .play-btn svg {
-      width: 28px;
-      height: 28px;
-      fill: var(--bg-primary);
-      margin-left: 3px;
+    .play-btn svg { width: 24px; height: 24px; fill: var(--bg-primary); margin-left: 3px; }
+
+    /* Project info area */
+    .project-info { padding: 2rem; }
+    .project-info .project-label {
+      font-size: 10px; color: var(--accent); letter-spacing: 2px;
+      text-transform: uppercase; margin-bottom: 0.6rem;
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .project-info .project-label::before {
+      content: ''; width: 16px; height: 1px; background: var(--accent);
+    }
+    .project-info h3 {
+      font-family: var(--serif); font-size: 1.6rem; font-weight: 600;
+      letter-spacing: -0.5px; margin-bottom: 0.8rem;
+    }
+    .project-info p {
+      font-size: 13px; color: var(--text-secondary); font-weight: 300;
+      line-height: 1.8; margin-bottom: 1.2rem; max-width: 700px;
     }
 
-    /* GIF showcase */
-    .showcase-media .gif-label {
-      position: absolute;
-      top: 12px;
-      right: 12px;
-      font-size: 9px;
-      padding: 3px 8px;
-      border-radius: 3px;
-      background: rgba(10, 14, 23, 0.8);
-      color: var(--accent);
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      border: 1px solid var(--border);
-      backdrop-filter: blur(4px);
+    /* Image gallery strip */
+    .project-gallery {
+      display: flex; gap: 0; overflow-x: auto; scroll-snap-type: x mandatory;
+      border-top: 1px solid var(--border); scrollbar-width: thin;
+      scrollbar-color: var(--accent-dim) transparent;
     }
+    .project-gallery::-webkit-scrollbar { height: 4px; }
+    .project-gallery::-webkit-scrollbar-track { background: transparent; }
+    .project-gallery::-webkit-scrollbar-thumb { background: var(--accent-dim); border-radius: 2px; }
+    .gallery-item {
+      flex: 0 0 auto; scroll-snap-align: start; position: relative;
+      border-right: 1px solid var(--border); overflow: hidden;
+    }
+    .gallery-item img {
+      height: 200px; display: block; object-fit: cover;
+      transition: transform 0.5s ease; min-width: 200px;
+    }
+    .gallery-item:hover img { transform: scale(1.08); }
+    .gallery-item .gallery-caption {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: 0.5rem 0.8rem; font-size: 9px; letter-spacing: 0.5px;
+      text-transform: uppercase; color: var(--text-secondary);
+      background: linear-gradient(transparent, rgba(10, 14, 23, 0.9));
+    }
+
+    /* Tags row */
+    .project-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; }
+    .project-tags .tag {
+      font-size: 10px; padding: 2px 8px; border-radius: 3px;
+      letter-spacing: 0.5px; text-transform: uppercase;
+    }
+    .tag.accent { background: var(--accent-dim); color: var(--accent); }
+    .tag.lang { background: #818cf822; color: var(--accent-secondary); }
+    .tag.bio { background: #f472b622; color: var(--accent-warm); }
+    .tag.orange { background: #fb923c22; color: var(--accent-orange); }
+
+    .project-actions { display: flex; gap: 0.8rem; flex-wrap: wrap; }
 
     /* ─── VIDEO MODAL ─── */
     .video-modal {
-      position: fixed;
-      inset: 0;
-      z-index: 10000;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      background: rgba(0, 0, 0, 0.92);
-      backdrop-filter: blur(20px);
+      position: fixed; inset: 0; z-index: 10000; display: none;
+      align-items: center; justify-content: center;
+      background: rgba(0, 0, 0, 0.92); backdrop-filter: blur(20px);
     }
-    .video-modal.active {
-      display: flex;
-    }
+    .video-modal.active { display: flex; }
     .video-modal .modal-close {
-      position: absolute;
-      top: 2rem;
-      right: 2rem;
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      border: 1px solid var(--border);
-      background: var(--bg-card);
-      color: var(--text-primary);
-      font-size: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: all 0.2s;
+      position: absolute; top: 2rem; right: 2rem; width: 48px; height: 48px;
+      border-radius: 50%; border: 1px solid var(--border); background: var(--bg-card);
+      color: var(--text-primary); font-size: 20px; display: flex;
+      align-items: center; justify-content: center; cursor: pointer; transition: all 0.2s;
     }
-    .video-modal .modal-close:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-    }
+    .video-modal .modal-close:hover { border-color: var(--accent); color: var(--accent); }
     .video-modal .modal-content {
-      width: 90%;
-      max-width: 960px;
-      aspect-ratio: 16/9;
-      border-radius: 12px;
-      overflow: hidden;
-      border: 1px solid var(--border);
-      box-shadow: 0 0 80px rgba(45, 212, 191, 0.1);
+      width: 90%; max-width: 960px; aspect-ratio: 16/9;
+      border-radius: 12px; overflow: hidden; border: 1px solid var(--border);
     }
-    .video-modal iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
+    .video-modal iframe { width: 100%; height: 100%; border: none; }
 
-    /* ─── SOFTWARE TOOLS ─── */
+    /* ─── OTHER TOOLS (smaller cards) ─── */
     .tools-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 1.5rem;
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem;
     }
     .tool-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 1.8rem;
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px;
+      padding: 1.8rem; transition: all 0.3s ease; position: relative; overflow: hidden;
     }
     .tool-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 2px;
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
       background: linear-gradient(90deg, var(--accent), var(--accent-secondary));
-      opacity: 0;
-      transition: opacity 0.3s;
+      opacity: 0; transition: opacity 0.3s;
     }
     .tool-card:hover {
-      border-color: var(--border-accent);
-      background: var(--bg-card-hover);
-      transform: translateY(-2px);
-      box-shadow: var(--glow);
+      border-color: var(--border-accent); background: var(--bg-card-hover);
+      transform: translateY(-2px); box-shadow: var(--glow);
     }
     .tool-card:hover::before { opacity: 1; }
-    .tool-card .card-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      margin-bottom: 1rem;
-    }
+    .tool-card .card-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem; }
     .tool-card .card-icon {
-      width: 40px;
-      height: 40px;
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 18px;
-      border: 1px solid var(--border);
+      width: 40px; height: 40px; border-radius: 8px; display: flex;
+      align-items: center; justify-content: center; font-size: 18px; border: 1px solid var(--border);
     }
     .tool-card .card-links { display: flex; gap: 0.6rem; }
     .tool-card .card-links a {
-      color: var(--text-muted);
-      font-size: 11px;
-      padding: 2px 8px;
-      border: 1px solid var(--border);
-      border-radius: 3px;
-      transition: all 0.2s;
+      color: var(--text-muted); font-size: 11px; padding: 2px 8px;
+      border: 1px solid var(--border); border-radius: 3px; transition: all 0.2s;
     }
-    .tool-card .card-links a:hover {
-      color: var(--accent);
-      border-color: var(--accent);
-    }
-    .tool-card h3 {
-      font-size: 16px;
-      font-weight: 600;
-      margin-bottom: 0.6rem;
-      letter-spacing: -0.3px;
-    }
-    .tool-card p {
-      font-size: 13px;
-      color: var(--text-secondary);
-      line-height: 1.7;
-      font-weight: 300;
-      margin-bottom: 1.2rem;
-    }
-    .tool-card .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
-    .tool-card .tag {
-      font-size: 10px;
-      padding: 2px 8px;
-      border-radius: 3px;
-      background: var(--accent-dim);
-      color: var(--accent);
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-    }
-    .tool-card .tag.lang {
-      background: #818cf822;
-      color: var(--accent-secondary);
-    }
-    .tool-card .tag.bio {
-      background: #f472b622;
-      color: var(--accent-warm);
-    }
+    .tool-card .card-links a:hover { color: var(--accent); border-color: var(--accent); }
+    .tool-card h3 { font-size: 16px; font-weight: 600; margin-bottom: 0.6rem; letter-spacing: -0.3px; }
+    .tool-card p { font-size: 13px; color: var(--text-secondary); line-height: 1.7; font-weight: 300; margin-bottom: 1.2rem; }
+    .tool-card .tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
 
     /* ─── PUBLICATIONS ─── */
     .pub-list { display: flex; flex-direction: column; gap: 1rem; }
     .pub-item {
-      padding: 1.5rem 1.8rem;
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      background: var(--bg-card);
-      transition: all 0.25s;
-      display: flex;
-      gap: 1.5rem;
-      align-items: flex-start;
+      padding: 1.5rem 1.8rem; border: 1px solid var(--border); border-radius: 6px;
+      background: var(--bg-card); transition: all 0.25s;
+      display: flex; gap: 1.5rem; align-items: flex-start;
     }
-    .pub-item:hover {
-      border-color: var(--border-accent);
-      background: var(--bg-card-hover);
-    }
-    .pub-year {
-      font-size: 12px;
-      color: var(--accent);
-      white-space: nowrap;
-      padding-top: 3px;
-      min-width: 44px;
-    }
-    .pub-content h4 {
-      font-size: 14px;
-      font-weight: 500;
-      margin-bottom: 0.35rem;
-      line-height: 1.5;
-    }
-    .pub-content .authors {
-      font-size: 12px;
-      color: var(--text-muted);
-      font-weight: 300;
-      margin-bottom: 0.3rem;
-    }
-    .pub-content .journal {
-      font-size: 12px;
-      color: var(--text-secondary);
-      font-style: italic;
-      font-family: var(--serif);
-    }
+    .pub-item:hover { border-color: var(--border-accent); background: var(--bg-card-hover); }
+    .pub-year { font-size: 12px; color: var(--accent); white-space: nowrap; padding-top: 3px; min-width: 44px; }
+    .pub-content h4 { font-size: 14px; font-weight: 500; margin-bottom: 0.35rem; line-height: 1.5; }
+    .pub-content .authors { font-size: 12px; color: var(--text-muted); font-weight: 300; margin-bottom: 0.3rem; }
+    .pub-content .journal { font-size: 12px; color: var(--text-secondary); font-style: italic; font-family: var(--serif); }
 
-    /* ─── ABOUT / BIO ─── */
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-    }
-    .about-text {
-      font-size: 14px;
-      color: var(--text-secondary);
-      line-height: 1.9;
-      font-weight: 300;
-    }
+    /* ─── ABOUT ─── */
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .about-text { font-size: 14px; color: var(--text-secondary); line-height: 1.9; font-weight: 300; }
     .about-text p + p { margin-top: 1rem; }
-    .about-stats {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-    }
+    .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
     .stat-box {
-      padding: 1.2rem;
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      background: var(--bg-card);
-      transition: all 0.3s;
+      padding: 1.2rem; border: 1px solid var(--border); border-radius: 6px;
+      background: var(--bg-card); transition: all 0.3s;
     }
-    .stat-box:hover {
-      border-color: var(--border-accent);
-      transform: translateY(-2px);
-      box-shadow: var(--glow);
-    }
-    .stat-box .stat-num {
-      font-size: 1.8rem;
-      font-weight: 600;
-      color: var(--accent);
-      line-height: 1;
-      margin-bottom: 0.3rem;
-    }
-    .stat-box .stat-label {
-      font-size: 11px;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
+    .stat-box:hover { border-color: var(--border-accent); transform: translateY(-2px); box-shadow: var(--glow); }
+    .stat-box .stat-num { font-size: 1.8rem; font-weight: 600; color: var(--accent); line-height: 1; margin-bottom: 0.3rem; }
+    .stat-box .stat-label { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
 
     /* ─── TEACHING ─── */
     .teaching-card {
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      background: var(--bg-card);
-      padding: 2rem;
-      display: flex;
-      gap: 2rem;
-      align-items: flex-start;
+      border: 1px solid var(--border); border-radius: 8px; background: var(--bg-card);
+      padding: 2rem; display: flex; gap: 2rem; align-items: flex-start;
     }
     .teaching-card .badge {
-      min-width: 60px;
-      height: 60px;
-      border-radius: 12px;
+      min-width: 60px; height: 60px; border-radius: 12px;
       background: linear-gradient(135deg, var(--accent-dim), #818cf822);
-      border: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 24px;
+      border: 1px solid var(--border); display: flex;
+      align-items: center; justify-content: center; font-size: 24px;
     }
-    .teaching-card h3 {
-      font-size: 16px;
-      margin-bottom: 0.5rem;
-    }
-    .teaching-card p {
-      font-size: 13px;
-      color: var(--text-secondary);
-      font-weight: 300;
-      line-height: 1.7;
-    }
+    .teaching-card h3 { font-size: 16px; margin-bottom: 0.5rem; }
+    .teaching-card p { font-size: 13px; color: var(--text-secondary); font-weight: 300; line-height: 1.7; }
 
     /* ─── CONTACT ─── */
-    .contact-section {
-      text-align: center;
-      padding: 6rem 2rem;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-    .contact-section h2 {
-      font-family: var(--serif);
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-    .contact-section p {
-      color: var(--text-secondary);
-      font-weight: 300;
-      font-size: 14px;
-      margin-bottom: 2rem;
-      line-height: 1.8;
-    }
-    .contact-links {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
+    .contact-section { text-align: center; padding: 6rem 2rem; max-width: 600px; margin: 0 auto; }
+    .contact-section h2 { font-family: var(--serif); font-size: 2rem; margin-bottom: 1rem; }
+    .contact-section p { color: var(--text-secondary); font-weight: 300; font-size: 14px; margin-bottom: 2rem; line-height: 1.8; }
+    .contact-links { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
 
     /* ─── FOOTER ─── */
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 2rem;
-      text-align: center;
-      font-size: 11px;
-      color: var(--text-muted);
-    }
+    footer { border-top: 1px solid var(--border); padding: 2rem; text-align: center; font-size: 11px; color: var(--text-muted); }
 
     /* ─── RESPONSIVE ─── */
     @media (max-width: 768px) {
@@ -744,23 +345,12 @@
       .tools-grid { grid-template-columns: 1fr; }
       .teaching-card { flex-direction: column; gap: 1rem; }
       .pub-item { flex-direction: column; gap: 0.5rem; }
-      .showcase-content {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-        padding: 4rem 1.5rem;
-      }
-      .showcase-item { min-height: auto; }
+      .gallery-item img { height: 140px; }
     }
 
     /* ─── ANIMATIONS ─── */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeUp 0.6s ease forwards;
-    }
-    @keyframes fadeUp {
-      to { opacity: 1; transform: translateY(0); }
-    }
+    .fade-in { opacity: 0; transform: translateY(20px); animation: fadeUp 0.6s ease forwards; }
+    @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
     .delay-1 { animation-delay: 0.1s; }
     .delay-2 { animation-delay: 0.2s; }
     .delay-3 { animation-delay: 0.3s; }
@@ -768,49 +358,11 @@
     .delay-5 { animation-delay: 0.5s; }
     .delay-6 { animation-delay: 0.6s; }
 
-    /* Floating animation for showcase media */
-    @keyframes float {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-10px); }
-    }
-    .float-anim {
-      animation: float 6s ease-in-out infinite;
-    }
-
-    /* Scanline effect for 6EQUJ5 */
-    .scanline-overlay {
-      position: absolute;
-      inset: 0;
-      background: repeating-linear-gradient(
-        0deg,
-        transparent,
-        transparent 2px,
-        rgba(45, 212, 191, 0.02) 2px,
-        rgba(45, 212, 191, 0.02) 4px
-      );
-      pointer-events: none;
-      z-index: 3;
-    }
-
-    /* Glow border effect */
-    @keyframes borderGlow {
-      0%, 100% { border-color: var(--border); }
-      50% { border-color: var(--accent); box-shadow: 0 0 20px var(--accent-dim); }
-    }
-    .glow-border {
-      animation: borderGlow 4s ease-in-out infinite;
-    }
-
-    /* Section divider */
-    .section-divider {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 2rem;
-    }
-    .section-divider hr {
-      border: none;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--border), var(--accent), var(--border), transparent);
+    /* Scanline overlay for 6EQUJ5 */
+    .scanlines {
+      position: absolute; inset: 0; pointer-events: none;
+      background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(45,212,191,0.015) 2px, rgba(45,212,191,0.015) 4px);
+      z-index: 1;
     }
   </style>
 </head>
@@ -821,7 +373,7 @@
     <div class="nav-inner">
       <div class="logo">luis.aguilera<span> ~/</span></div>
       <ul>
-        <li><a href="#showcase">Projects</a></li>
+        <li><a href="#projects">Projects</a></li>
         <li><a href="#tools">Tools</a></li>
         <li><a href="#publications">Publications</a></li>
         <li><a href="#about">About</a></li>
@@ -851,92 +403,205 @@
       <div class="links fade-in delay-4">
         <a href="https://github.com/luisub" class="btn primary" target="_blank">GitHub</a>
         <a href="https://scholar.google.com/citations?user=06M4bvMAAAAJ&amp;hl=en" class="btn" target="_blank">Google Scholar</a>
-        <a href="#showcase" class="btn">View Projects ↓</a>
+        <a href="#projects" class="btn">View Projects ↓</a>
       </div>
     </div>
   </header>
 
-  <!-- ═══════════════════════════════════════════════ -->
-  <!-- PROJECT SHOWCASES                               -->
-  <!-- ═══════════════════════════════════════════════ -->
-  <div id="showcase" class="showcase">
+  <!-- ═══════════════════════════════════════ -->
+  <!-- PROJECT SHOWCASES                       -->
+  <!-- ═══════════════════════════════════════ -->
+  <section id="projects">
+    <div class="section-header fade-in">
+      <span class="num">01.</span>
+      <h2>Featured Projects</h2>
+    </div>
 
-    <!-- ─── MICROLIVE SHOWCASE ─── -->
-    <div class="showcase-item" id="showcase-microlive">
-      <div class="showcase-bg">
-        <img src="assets/microscopy_hero.png" alt="Fluorescence microscopy cells" loading="lazy" />
-      </div>
-      <div class="showcase-content">
-        <div class="showcase-text fade-in">
-          <div class="showcase-label">Featured Project</div>
-          <h3>MicroLive</h3>
-          <p>
-            A complete image processing toolkit for quantifying live-cell single-molecule microscopy.
-            PyQt5-based GUI integrating Cellpose segmentation, TrackPy particle tracking, Big-FISH spot detection,
-            and custom ML classifiers — from image loading to publication-ready analysis.
-          </p>
-          <div class="showcase-tags">
-            <span class="tag accent">Published in Bioinformatics Advances</span>
-            <span class="tag purple">Python</span>
-            <span class="tag purple">PyQt5</span>
-            <span class="tag warm">Microscopy</span>
-            <span class="tag">Cellpose</span>
-            <span class="tag">TrackPy</span>
-            <span class="tag">ML</span>
-          </div>
-          <div class="showcase-actions">
-            <a href="https://github.com/ningzhaoAnschutz/microlive" class="btn primary" target="_blank">View on GitHub</a>
-            <a href="#" class="btn" id="btn-play-microlive" onclick="openVideoModal(event)">▶ Watch Demo</a>
-            <a href="https://doi.org/10.1093/bioadv/vbag095" class="btn" target="_blank">Read Paper</a>
+    <!-- ─── MICROLIVE ─── -->
+    <div class="project-showcase fade-in delay-1">
+      <div class="project-hero" onclick="openVideoModal()">
+        <img src="https://img.youtube.com/vi/GU1ct5go-AU/maxresdefault.jpg" alt="MicroLive demo video" />
+        <div class="play-overlay">
+          <div class="play-btn">
+            <svg viewBox="0 0 24 24"><polygon points="8,5 19,12 8,19"/></svg>
           </div>
         </div>
-        <div class="showcase-media float-anim fade-in delay-2" id="microlive-media" onclick="openVideoModal(event)">
-          <img src="https://img.youtube.com/vi/GU1ct5go-AU/maxresdefault.jpg" alt="MicroLive demo video thumbnail" loading="lazy" />
-          <div class="play-overlay">
-            <div class="play-btn">
-              <svg viewBox="0 0 24 24"><polygon points="8,5 19,12 8,19"/></svg>
-            </div>
-          </div>
+      </div>
+      <div class="project-gallery">
+        <div class="gallery-item">
+          <img src="https://raw.githubusercontent.com/ningzhaoAnschutz/microlive/main/docs/gui_image.png" alt="MicroLive GUI" />
+          <div class="gallery-caption">GUI Interface</div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://raw.githubusercontent.com/ningzhaoAnschutz/microlive/main/docs/smHA_KDM5B_1fps_rna_protein_smHA_KDM5B_1fps_rna_protein.png" alt="Single-molecule RNA and protein tracking" />
+          <div class="gallery-caption">RNA & Protein Tracking</div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://raw.githubusercontent.com/ningzhaoAnschutz/microlive/main/docs/code_architecture.png" alt="MicroLive architecture" />
+          <div class="gallery-caption">Code Architecture</div>
+        </div>
+      </div>
+      <div class="project-info">
+        <div class="project-label">Featured · Published 2026</div>
+        <h3>MicroLive</h3>
+        <p>
+          A complete image processing toolkit for quantifying live-cell single-molecule microscopy.
+          PyQt5-based GUI integrating Cellpose segmentation, TrackPy particle tracking, Big-FISH 
+          spot detection, and custom ML classifiers — from image loading to publication-ready analysis.
+        </p>
+        <div class="project-tags">
+          <span class="tag accent">Bioinformatics Advances</span>
+          <span class="tag lang">Python</span>
+          <span class="tag lang">PyQt5</span>
+          <span class="tag bio">Microscopy</span>
+          <span class="tag accent">Cellpose</span>
+          <span class="tag accent">TrackPy</span>
+        </div>
+        <div class="project-actions">
+          <a href="https://github.com/ningzhaoAnschutz/microlive" class="btn primary" target="_blank">GitHub Repo</a>
+          <a href="#" class="btn" onclick="openVideoModal(); return false;">▶ Watch Demo</a>
+          <a href="https://doi.org/10.1093/bioadv/vbag095" class="btn" target="_blank">Read Paper</a>
         </div>
       </div>
     </div>
 
-    <!-- ─── 6EQUJ5 SHOWCASE ─── -->
-    <div class="showcase-item" id="showcase-6equj5">
-      <div class="showcase-bg">
-        <img src="assets/deep_space_6equj5.png" alt="Deep space radio telescope" loading="lazy" />
+    <!-- ─── FISH PROCESSING ─── -->
+    <div class="project-showcase fade-in delay-2">
+      <div class="project-hero">
+        <img src="https://github.com/MunskyGroup/FISH_Processing/raw/main/docs/images/images_readme/cell_segmentation.png" alt="FISH cell segmentation" />
       </div>
-      <div class="scanline-overlay"></div>
-      <div class="showcase-content">
-        <div class="showcase-media float-anim fade-in glow-border" style="order: -1;">
-          <img src="https://raw.githubusercontent.com/luisub/6EQUJ5/main/docs/trailer_final.gif" alt="6EQUJ5 game trailer animation" loading="lazy" />
-          <span class="gif-label">● Live Demo</span>
+      <div class="project-gallery">
+        <div class="gallery-item">
+          <img src="https://github.com/MunskyGroup/FISH_Processing/raw/main/docs/images/images_readme/single_cells.png" alt="Spot detection in single cells" />
+          <div class="gallery-caption">Spot Detection</div>
         </div>
-        <div class="showcase-text fade-in delay-2">
-          <div class="showcase-label">Creative Project</div>
-          <h3>6EQUJ5</h3>
-          <p>
-            A Python terminal-based deep-space receiver game. You are a rogue engineer operating from an abandoned, 
-            analog radio observatory. Scan the sky along the hydrogen line, lock onto anomalous sources, 
-            and engage in AI-driven dialogue with alien civilizations — each with its own history, physics, and intent.
-            Inspired by the real 1977 Wow! signal.
-          </p>
-          <div class="showcase-tags">
-            <span class="tag accent">Science Fiction</span>
-            <span class="tag purple">Python</span>
-            <span class="tag purple">Ollama / AI</span>
-            <span class="tag warm">SETI</span>
-            <span class="tag">Terminal Art</span>
-            <span class="tag">Game</span>
-          </div>
-          <div class="showcase-actions">
-            <a href="https://github.com/luisub/6EQUJ5" class="btn primary" target="_blank">View on GitHub</a>
-            <a href="https://github.com/luisub/6EQUJ5/blob/main/docs/trailer_final.mp4" class="btn" target="_blank">▶ Full Trailer</a>
-          </div>
+        <div class="gallery-item">
+          <img src="https://github.com/MunskyGroup/FISH_Processing/raw/main/docs/images/images_readme/visualization_cell.png" alt="Cell visualization" />
+          <div class="gallery-caption">Cell Visualization</div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://github.com/MunskyGroup/FISH_Processing/raw/main/docs/images/images_readme/max_projection.png" alt="Multi-channel max projection" />
+          <div class="gallery-caption">Multi-channel Projection</div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://github.com/MunskyGroup/FISH_Processing/raw/main/docs/images/images_readme/spot_intensities.png" alt="Spot intensity quantification" />
+          <div class="gallery-caption">Spot Intensities</div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://github.com/MunskyGroup/FISH_Processing/raw/main/docs/images/images_readme/scatter_cell_size_vs_spots.png" alt="Scatter plot cell size vs spots" />
+          <div class="gallery-caption">Quantification</div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://github.com/MunskyGroup/FISH_Processing/raw/main/docs/images/images_readme/complete_image.png" alt="Complete field of view" />
+          <div class="gallery-caption">Full Field of View</div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://github.com/MunskyGroup/FISH_Processing/raw/main/docs/images/images_readme/z_slices_visualization.png" alt="Z-slice visualization" />
+          <div class="gallery-caption">Z-Slices</div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://github.com/MunskyGroup/FISH_Processing/raw/main/docs/images/code_architecture.png" alt="FISH Processing code architecture" />
+          <div class="gallery-caption">Architecture</div>
+        </div>
+      </div>
+      <div class="project-info">
+        <div class="project-label">Research Tool</div>
+        <h3>FISH Processing</h3>
+        <p>
+          Automated pipeline for Fluorescence In Situ Hybridization (FISH) image analysis.
+          Uses Cellpose for cell segmentation and BIG-FISH (FISH-quant v2) for spot detection,
+          counting, and intensity quantification across multiple color channels.
+        </p>
+        <div class="project-tags">
+          <span class="tag lang">Python</span>
+          <span class="tag lang">Jupyter</span>
+          <span class="tag bio">FISH</span>
+          <span class="tag accent">Cellpose</span>
+          <span class="tag accent">Big-FISH</span>
+          <span class="tag orange">Colab Ready</span>
+        </div>
+        <div class="project-actions">
+          <a href="https://github.com/MunskyGroup/FISH_Processing" class="btn primary" target="_blank">GitHub Repo</a>
+          <a href="https://colab.research.google.com/drive/1CQx4e5MQ0ZsZSQgqtLzVVh53dAg4uaQj?usp=sharing" class="btn" target="_blank">Open in Colab</a>
         </div>
       </div>
     </div>
-  </div>
+
+    <!-- ─── rSNAPed ─── -->
+    <div class="project-showcase fade-in delay-3">
+      <div class="project-hero">
+        <img src="https://raw.githubusercontent.com/MunskyGroup/rsnaped/master/docs/images/gallery/simulated_cell.gif" alt="rSNAPed simulated cell" style="max-height: 360px; object-fit: contain; background: #000;" />
+      </div>
+      <div class="project-info">
+        <div class="project-label">Simulation Library</div>
+        <h3>rSNAPed</h3>
+        <p>
+          RNA Sequence to NAscent Protein Experiment Designer. A library to simulate 
+          single-molecule gene expression experiments, generate simulated intensity 
+          translation spots, and test machine learning and computational pipelines.
+        </p>
+        <div class="project-tags">
+          <span class="tag lang">Python</span>
+          <span class="tag bio">Gene Expression</span>
+          <span class="tag accent">Stochastic Models</span>
+          <span class="tag orange">Colab Ready</span>
+        </div>
+        <div class="project-actions">
+          <a href="https://github.com/MunskyGroup/rsnaped" class="btn primary" target="_blank">GitHub Repo</a>
+          <a href="https://colab.research.google.com/drive/1ABxBfqsmDtv8dORBUhvFcg5Xqdy-OoaE?usp=sharing" class="btn" target="_blank">Open in Colab</a>
+          <a href="https://doi.org/10.5281/zenodo.6967555" class="btn" target="_blank">Zenodo DOI</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── 6EQUJ5 ─── -->
+    <div class="project-showcase fade-in delay-4" style="position: relative;">
+      <div class="project-hero" style="position: relative;">
+        <img src="https://raw.githubusercontent.com/luisub/6EQUJ5/main/docs/trailer_final.gif" alt="6EQUJ5 game trailer" style="max-height: 420px; object-fit: cover; width: 100%; background: #000;" />
+        <div class="scanlines"></div>
+      </div>
+      <div class="project-gallery">
+        <div class="gallery-item">
+          <img src="https://raw.githubusercontent.com/luisub/6EQUJ5/main/docs/6equj5.png" alt="6EQUJ5 game art" />
+          <div class="gallery-caption">Game Art</div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://raw.githubusercontent.com/luisub/6EQUJ5/main/docs/demo_compressed.gif" alt="6EQUJ5 terminal demo" />
+          <div class="gallery-caption">Terminal Demo</div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://raw.githubusercontent.com/luisub/6EQUJ5/main/docs/Omuamua.png" alt="Oumuamua" />
+          <div class="gallery-caption">Oumuamua</div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://raw.githubusercontent.com/luisub/6EQUJ5/main/docs/crab_nebula_pulsar.png" alt="Crab Nebula Pulsar" />
+          <div class="gallery-caption">Crab Nebula Pulsar</div>
+        </div>
+      </div>
+      <div class="project-info">
+        <div class="project-label">Creative · Game</div>
+        <h3>6EQUJ5</h3>
+        <p>
+          A Python terminal-based deep-space receiver game. You are a rogue engineer 
+          operating from an abandoned analog radio observatory, scanning the sky along the 
+          hydrogen line and engaging in AI-driven dialogue with alien civilizations. 
+          Each has survived what you are currently facing: an Artificial Superintelligence.
+          Inspired by the real 1977 Wow! signal.
+        </p>
+        <div class="project-tags">
+          <span class="tag accent">Science Fiction</span>
+          <span class="tag lang">Python</span>
+          <span class="tag lang">Ollama / AI</span>
+          <span class="tag bio">SETI</span>
+          <span class="tag orange">Terminal Art</span>
+        </div>
+        <div class="project-actions">
+          <a href="https://github.com/luisub/6EQUJ5" class="btn primary" target="_blank">GitHub Repo</a>
+          <a href="https://github.com/luisub/6EQUJ5/blob/main/docs/trailer_final.mp4" class="btn" target="_blank">▶ Full Trailer</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- VIDEO MODAL -->
   <div class="video-modal" id="video-modal">
@@ -946,102 +611,6 @@
     </div>
   </div>
 
-  <div class="section-divider"><hr /></div>
-
-  <!-- SOFTWARE TOOLS -->
-  <section id="tools">
-    <div class="section-header fade-in">
-      <span class="num">01.</span>
-      <h2>Software Tools</h2>
-    </div>
-    <div class="tools-grid">
-      <div class="tool-card fade-in delay-1">
-        <div class="card-top">
-          <div class="card-icon">🔬</div>
-          <div class="card-links">
-            <a href="https://github.com/ningzhaoAnschutz/microlive" target="_blank">repo</a>
-            <a href="https://doi.org/10.1093/bioadv/vbag095" target="_blank">paper</a>
-          </div>
-        </div>
-        <h3>MicroLive</h3>
-        <p>
-          Image processing toolkit for quantifying live-cell single-molecule microscopy. 
-          PyQt5-based GUI integrating Cellpose, TrackPy, Big-FISH, and custom ML classifiers 
-          for automated analysis.
-        </p>
-        <div class="tags">
-          <span class="tag lang">Python</span>
-          <span class="tag lang">PyQt5</span>
-          <span class="tag bio">microscopy</span>
-          <span class="tag">cellpose</span>
-          <span class="tag">trackpy</span>
-        </div>
-      </div>
-
-      <div class="tool-card fade-in delay-2">
-        <div class="card-top">
-          <div class="card-icon">🧬</div>
-          <div class="card-links">
-            <a href="https://github.com/MunskyGroup/FISH_Processing" target="_blank">repo</a>
-          </div>
-        </div>
-        <h3>FISH Processing</h3>
-        <p>
-          Automated pipeline for Fluorescence In Situ Hybridization (FISH) image analysis.
-          Uses Cellpose for segmentation and BIG-FISH (FISH-quant v2) for 
-          spot detection and quantification.
-        </p>
-        <div class="tags">
-          <span class="tag lang">Python</span>
-          <span class="tag lang">Jupyter</span>
-          <span class="tag bio">FISH</span>
-          <span class="tag">cellpose</span>
-          <span class="tag">big-fish</span>
-        </div>
-      </div>
-
-      <div class="tool-card fade-in delay-3">
-        <div class="card-top">
-          <div class="card-icon">📊</div>
-          <div class="card-links">
-            <a href="https://github.com/MunskyGroup/rsnaped" target="_blank">repo</a>
-          </div>
-        </div>
-        <h3>rSNAPed</h3>
-        <p>
-          A library to quantify and design single-molecule gene expression experiments. 
-          Combines stochastic models with experimental design optimization for 
-          smFISH and live-cell imaging.
-        </p>
-        <div class="tags">
-          <span class="tag lang">Python</span>
-          <span class="tag bio">gene expression</span>
-          <span class="tag">stochastic models</span>
-        </div>
-      </div>
-
-      <div class="tool-card fade-in delay-4">
-        <div class="card-top">
-          <div class="card-icon">📡</div>
-          <div class="card-links">
-            <a href="https://github.com/luisub/6EQUJ5" target="_blank">repo</a>
-          </div>
-        </div>
-        <h3>6EQUJ5</h3>
-        <p>
-          A Python terminal-based deep-space receiver. Scans the sky and engages in dialogue 
-          with an alien intelligence transmitting since 1977 — a creative coding project 
-          inspired by the Wow! signal.
-        </p>
-        <div class="tags">
-          <span class="tag lang">Python</span>
-          <span class="tag">terminal</span>
-          <span class="tag">creative</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- PUBLICATIONS -->
   <section id="publications">
     <div class="section-header fade-in">
@@ -1049,7 +618,6 @@
       <h2>Research & Publications</h2>
     </div>
     <div class="pub-list">
-
       <div class="pub-item fade-in delay-1">
         <span class="pub-year">2026</span>
         <div class="pub-content">
@@ -1058,7 +626,6 @@
           <div class="journal">Bioinformatics Advances</div>
         </div>
       </div>
-
       <div class="pub-item fade-in delay-2">
         <span class="pub-year">2025</span>
         <div class="pub-content">
@@ -1067,7 +634,6 @@
           <div class="journal">Physical Biology</div>
         </div>
       </div>
-
       <div class="pub-item fade-in delay-1">
         <span class="pub-year">2024</span>
         <div class="pub-content">
@@ -1076,7 +642,6 @@
           <div class="journal">IEEE Conference on Decision and Control (CDC)</div>
         </div>
       </div>
-
       <div class="pub-item fade-in delay-2">
         <span class="pub-year">2023</span>
         <div class="pub-content">
@@ -1085,7 +650,6 @@
           <div class="journal">Frontiers in Cell and Developmental Biology</div>
         </div>
       </div>
-
       <div class="pub-item fade-in delay-1">
         <span class="pub-year">2020</span>
         <div class="pub-content">
@@ -1094,7 +658,6 @@
           <div class="journal">Nature Structural &amp; Molecular Biology</div>
         </div>
       </div>
-
       <div class="pub-item fade-in delay-2">
         <span class="pub-year">2019</span>
         <div class="pub-content">
@@ -1103,7 +666,6 @@
           <div class="journal">PLoS Computational Biology</div>
         </div>
       </div>
-
       <div class="pub-item fade-in delay-1">
         <span class="pub-year">2019</span>
         <div class="pub-content">
@@ -1112,8 +674,6 @@
           <div class="journal">Molecular Cell</div>
         </div>
       </div>
-
-
       <p style="color: var(--text-muted); font-size: 12px; margin-top: 1rem;">
         → <a href="https://scholar.google.com/citations?user=06M4bvMAAAAJ&amp;hl=en" target="_blank">View full publication list on Google Scholar</a>
       </p>
@@ -1212,37 +772,31 @@
   </footer>
 
   <script>
-    // ─── PARTICLE SYSTEM ─── //
+    // ─── PARTICLE SYSTEM (hero background) ─── //
     const canvas = document.getElementById('particle-canvas');
     const ctx = canvas.getContext('2d');
     let particles = [];
-    let animId;
 
     function resizeCanvas() {
       const hero = document.querySelector('.hero');
       canvas.width = hero.offsetWidth;
       canvas.height = hero.offsetHeight;
     }
-
     class Particle {
-      constructor() {
-        this.reset();
-      }
+      constructor() { this.reset(); }
       reset() {
         this.x = Math.random() * canvas.width;
         this.y = Math.random() * canvas.height;
         this.size = Math.random() * 2 + 0.5;
         this.speedX = (Math.random() - 0.5) * 0.3;
         this.speedY = (Math.random() - 0.5) * 0.3;
-        this.opacity = Math.random() * 0.5 + 0.1;
+        this.opacity = Math.random() * 0.4 + 0.1;
         this.hue = Math.random() > 0.7 ? 160 : (Math.random() > 0.5 ? 230 : 320);
       }
       update() {
         this.x += this.speedX;
         this.y += this.speedY;
-        if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) {
-          this.reset();
-        }
+        if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) this.reset();
       }
       draw() {
         ctx.beginPath();
@@ -1251,58 +805,45 @@
         ctx.fill();
       }
     }
-
     function initParticles() {
       particles = [];
-      const count = Math.min(80, Math.floor(canvas.width * canvas.height / 15000));
-      for (let i = 0; i < count; i++) {
-        particles.push(new Particle());
-      }
+      const count = Math.min(60, Math.floor(canvas.width * canvas.height / 18000));
+      for (let i = 0; i < count; i++) particles.push(new Particle());
     }
-
     function drawConnections() {
       for (let i = 0; i < particles.length; i++) {
         for (let j = i + 1; j < particles.length; j++) {
           const dx = particles[i].x - particles[j].x;
           const dy = particles[i].y - particles[j].y;
           const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < 120) {
+          if (dist < 100) {
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.strokeStyle = `rgba(45, 212, 191, ${0.08 * (1 - dist / 120)})`;
+            ctx.strokeStyle = `rgba(45, 212, 191, ${0.06 * (1 - dist / 100)})`;
             ctx.lineWidth = 0.5;
             ctx.stroke();
           }
         }
       }
     }
-
     function animateParticles() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       particles.forEach(p => { p.update(); p.draw(); });
       drawConnections();
-      animId = requestAnimationFrame(animateParticles);
+      requestAnimationFrame(animateParticles);
     }
-
-    resizeCanvas();
-    initParticles();
-    animateParticles();
-    window.addEventListener('resize', () => {
-      resizeCanvas();
-      initParticles();
-    });
+    resizeCanvas(); initParticles(); animateParticles();
+    window.addEventListener('resize', () => { resizeCanvas(); initParticles(); });
 
     // ─── VIDEO MODAL ─── //
-    function openVideoModal(e) {
-      e.preventDefault();
+    function openVideoModal() {
       const modal = document.getElementById('video-modal');
       const iframe = document.getElementById('video-iframe');
       iframe.src = 'https://www.youtube.com/embed/GU1ct5go-AU?autoplay=1&rel=0';
       modal.classList.add('active');
       document.body.style.overflow = 'hidden';
     }
-
     function closeVideoModal() {
       const modal = document.getElementById('video-modal');
       const iframe = document.getElementById('video-iframe');
@@ -1310,14 +851,10 @@
       modal.classList.remove('active');
       document.body.style.overflow = '';
     }
-
     document.getElementById('video-modal').addEventListener('click', (e) => {
       if (e.target === e.currentTarget) closeVideoModal();
     });
-
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeVideoModal();
-    });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeVideoModal(); });
 
     // ─── SCROLL ANIMATIONS ─── //
     const observer = new IntersectionObserver((entries) => {
@@ -1328,25 +865,10 @@
         }
       });
     }, { threshold: 0.1 });
-
     document.querySelectorAll('.fade-in').forEach(el => {
       el.style.animationPlayState = 'paused';
       observer.observe(el);
     });
-
-    // ─── PARALLAX on Showcase Backgrounds ─── //
-    const showcaseItems = document.querySelectorAll('.showcase-item');
-    window.addEventListener('scroll', () => {
-      showcaseItems.forEach(item => {
-        const rect = item.getBoundingClientRect();
-        const speed = 0.15;
-        const yPos = rect.top * speed;
-        const bg = item.querySelector('.showcase-bg img');
-        if (bg) {
-          bg.style.transform = `translateY(${yPos}px) scale(1.1)`;
-        }
-      });
-    }, { passive: true });
   </script>
 
 </body>
